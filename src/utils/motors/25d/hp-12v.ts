@@ -1,0 +1,47 @@
+import type { PololuMotor } from "../common";
+import { kgfcmToNm, ozInTokgfcm } from "../common";
+
+export const hp12vMotors: PololuMotor[] = [
+  {
+    id: "3203",
+    series: "25D",
+    voltage: 12,
+    motorType: "HP 12V",
+    gearRatio: "20.4:1",
+    rpmNoLoad: 500,
+    torqueRatedNm: kgfcmToNm(ozInTokgfcm(100)),
+    stallCurrentA: 5.0,
+    freeRunCurrentA: 0.25,
+    outputShaftDiameter: 4,
+    supplier: "Pololu",
+    url: "https://pololu.com/product/3203",
+  },
+  {
+    id: "3204",
+    series: "25D",
+    voltage: 12,
+    motorType: "HP 12V",
+    gearRatio: "34:1",
+    rpmNoLoad: 300,
+    torqueRatedNm: kgfcmToNm(ozInTokgfcm(150)),
+    stallCurrentA: 5.0,
+    freeRunCurrentA: 0.25,
+    outputShaftDiameter: 4,
+    supplier: "Pololu",
+    url: "https://pololu.com/product/3204",
+  },
+  {
+    id: "3205",
+    series: "25D",
+    voltage: 12,
+    motorType: "HP 12V",
+    gearRatio: "47:1",
+    rpmNoLoad: 220,
+    torqueRatedNm: kgfcmToNm(ozInTokgfcm(210)),
+    stallCurrentA: 5.0,
+    freeRunCurrentA: 0.25,
+    outputShaftDiameter: 4,
+    supplier: "Pololu",
+    url: "https://pololu.com/product/3205",
+  },
+];
