@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Wheeled Vehicle Motor Picker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based calculator for selecting the right motor for wheeled vehicles (robots, go-karts, electric vehicles, etc.). Enter your desired speed, force requirements, and wheel diameter, and the tool will calculate the necessary motor RPM and torque, then suggest compatible Pololu micro gearmotors from their catalog.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Motor Requirements Calculator**: Calculates required motor RPM and torque based on vehicle parameters
+- **Unit Flexibility**: Supports multiple units for speed (km/h, m/s) and force (kgf, N)
+- **Motor Recommendations**: Suggests suitable Pololu micro gearmotors that meet your requirements
+- **Voltage Filtering**: Optional system voltage filter to narrow down motor suggestions
+- **Interactive UI**: Real-time calculations as you adjust parameters
+- **Comprehensive Motor Database**: Includes various Pololu gearmotor series (micro metal, 20D, 25D, 37D)
 
-## React Compiler
+## How It Works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The calculator uses the following formulas:
 
-## Expanding the ESLint configuration
+- **RPM** = (Speed / (π × Diameter)) × 60
+- **Torque** = Force × (Diameter / 2)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Based on these requirements, it searches through a database of Pololu gearmotors and recommends motors that can deliver the necessary performance, showing you the load percentage for each suggested motor.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Built with React + TypeScript + Vite for a fast, type-safe development experience.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Development
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Run development server
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
