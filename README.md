@@ -2,6 +2,8 @@
 
 A web-based calculator for selecting the right motor for wheeled vehicles (robots, go-karts, electric vehicles, etc.). Enter your desired speed, force requirements, and wheel diameter, and the tool will calculate the necessary motor RPM and torque, then suggest compatible Pololu micro gearmotors from their catalog.
 
+**Live Site**: https://sdfgeoff.github.io/mini-gearmotor-sizing-website/
+
 ## Features
 
 - **Motor Requirements Calculator**: Calculates required motor RPM and torque based on vehicle parameters
